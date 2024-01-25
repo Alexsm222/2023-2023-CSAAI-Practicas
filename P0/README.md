@@ -7,3 +7,5 @@
 *************************
 
     ...Tercer Cambio...
+
+![](Ejercicio2-img1.gif)
