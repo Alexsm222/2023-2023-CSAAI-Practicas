@@ -1,0 +1,163 @@
+
+@font-face {
+    font-family: "Breathe Fire";
+    src: url("Breathe Fire.otf");
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    background-image: url("stormlight_background2.jpg");
+    background-size: 100%;
+    
+}
+
+.cuerpo{
+    
+    padding: 10px;
+    min-height: 500px;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Breathe Fire";
+    font-size: 250%;
+    color: darkblue;
+    padding: 10px;
+}
+
+h2 {
+    text-align: center;
+    font-family: "Breathe Fire";
+    font-size: 180%;
+    color: darkblue;
+    padding: 10px;
+    margin-top: 2px;
+    
+    
+}
+
+.columna1{
+    float: left;
+    border: solid;
+    border-color: aquamarine;
+    margin: 5px;
+    width: 30%;
+}
+
+.c1{
+    float: left;
+    border: solid;
+    border-color: aquamarine;
+    margin: 5px;
+    width: 45%;
+}
+
+.c2{
+    float: left;
+    border: solid;
+    border-color: aquamarine;
+    margin: 5px;
+    width: 50%;
+}
+
+#kal{
+    float: inherit;
+    width: 100%;
+    
+    
+}
+
+.sobremi{
+    text-align:justify ;
+    margin-right: 20px;
+    line-height: 25px;
+}
+
+.contacto{
+
+    text-align: justify;
+    margin: 20px;
+
+}
+
+.columna2{
+    float: left;
+    margin: 5px;
+    border: solid;
+    border-color: aquamarine;
+    width: 60%;
+
+}
+
+.trasfondo{
+    text-align: justify;
+    padding: 10px;
+    margin: 10px;
+    
+}
+
+.habilidades{
+    float: left;
+}
+
+.habilidades_listas{
+    float: left;
+    width: 50%;
+    
+}
+
+#kaladin{
+    float: right;
+    margin: 10px;
+    width: 45%;   
+}
+
+@media screen and (max-width: 800px) {
+    .cuerpo {
+      width: 100%;
+    }
+
+    .columna1{
+        width: 100%;
+    }
+    .columna2{
+        width: 100%;
+    }
+    #kal{
+        width: 100%;
+    }
+    #kaladin{
+        width: 100%;
+    }
+}
+
+div.ideales{
+    margin: 10px;
+    text-align: center;
+}
+
+.encontrarme{
+    margin: 10px;
+}
+
+#libros{
+    float: left;
+    width: 100%;
+}
+
+.filla:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+    footer{
+        
+        text-align: center;
+    }
+    #ideal{
+        margin-top: 15px;
+    }
