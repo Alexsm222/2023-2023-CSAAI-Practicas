@@ -1,0 +1,83 @@
+.calculator {
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    margin-block-start: 2em;
+    max-inline-size: 22rem;
+    overflow: hidden;
+    background: hsl(207, 19%, 61%);
+  }
+  .display_juego {
+    
+    color: antiquewhite;
+  grid-column: 1 / -1;
+  padding: 24px;
+  display: flex;
+  margin: 15px 15px 1px;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: #363636;
+  border-radius: 93px;
+  text-align: justify;
+  justify-content: space-between;
+  word-break: break-all;
+  box-shadow: 0px 0px 0px 5px #0003;
+}
+
+
+  #display {
+    background: hsl(207, 19%, 61%);
+    color: hsl(255, 100%, 100%);
+    font-size: 4.2rem;
+    padding-block-start: 3rem;
+    padding-block-end: 0.5rem;
+    padding-inline-end: 1.25rem;
+    text-align: center;
+  }
+
+  .calculator__keys {
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 15px;
+    background: hsl(207, 19%, 61%);
+    padding: 1.5rem;
+  }
+  .filas {
+    background: hsl(206, 14%, 41%);
+    color: hsl(255, 100%, 100%);
+    border: none;
+    padding-block-start: 1rem;
+    padding-block-end: 1rem;
+    padding-inline-end: 1.25rem;
+    padding-inline-start: 1.25rem;
+    font-size: 1.5rem;
+    /* Playful Styles */
+    inline-size: 70px;
+    block-size: 70px;
+    margin: 0.25rem;
+    border-radius: 40px;
+  }
+
+  .fila {
+    background: hsl(357, 100%, 72%);
+    color: hsl(255, 100%, 100%);
+    border: none;
+    padding-block-start: 1rem;
+    padding-block-end: 1rem;
+    padding-inline-end: 1rem;
+    padding-inline-start: 1rem;
+    font-size: 0.8rem;
+    /* Playful Styles */
+    inline-size: 70px;
+    block-size: 70px;
+    margin: 0.25rem;
+    border-radius: 40px;
+  }
+
+  .fila_1:active {
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3) inset;
+    outline: none;
+  }
