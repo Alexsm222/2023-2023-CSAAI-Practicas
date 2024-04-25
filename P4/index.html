@@ -12,18 +12,28 @@
     <body>
         <div class="game">
             <div class="controles">
-                <button>Comenzar</button>
+                <button class="start">Comenzar</button>
+                <span><button class="restart">Reiniciar</button></span>
                 <div class="display">
                     <div class="movimientos">0 movimientos</div>
                     <div class="timer">tiempo: 0 sec</div>
                 </div>
             </div>
             <div class="grid-container">
-                <div class="tablero" grid-dimension="0"></div>
+                <p>
+                    <fieldset>
+                        <legend>Elija las dimensiones: <span id="dim">0</span></legend>
+                        
+                        <input type="range" id="slide"  class="slide"  min="2" max="6" step="2" value="0">  
+
+                    </fieldset>
+                </p>
+                <div class="tablero" grid-dimension="4"></div>
                     <div class="card">
-                        <p><input type="number"></p>
                     </div>
+
                 <div class="win">¡Has Ganado!</div>
+
             </div>
         </div>
     </body>

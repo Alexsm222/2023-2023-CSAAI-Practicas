@@ -3,7 +3,7 @@ const selectors = {
     tablero: document.querySelector('.tablero'),
     movimientos: document.querySelector('.movimientos'),
     timer: document.querySelector('.timer'),
-    comenzar: document.querySelector('button'),
+    comenzar: document.querySelector('start'),
     win: document.querySelector('.win')
 }
 
@@ -15,9 +15,26 @@ const state = {
     loop: null
 }
 
-const generateGame = () => {
-    const dimensions = selectors.tablero.getAttribute('grid-dimension')
+// Variables
 
+var dimensions = 0;
+
+const slide = document.getElementById("slide");
+const dim = document.getElementById("dim");
+const slide2 = document.getElementById("slide");
+slide2.disable = false;
+
+
+dim.innerHTML = 0;
+slide.onchange = () => {
+    dim.innerHTML = slide.value;
+    var dimensions = slide.value;
+    generateGame(dimensions);
+}
+
+const generateGame = (dim) => {
+    
+    dimensions = dim;
     //-- Nos aseguramos de que el número de dimensiones es par
     // y si es impar lanzamos un error
     if (dimensions % 2 !== 0) {
@@ -25,7 +42,7 @@ const generateGame = () => {
     }
 
     //-- Creamos un array con los emojis que vamos a utilizar en nuestro juego
-    const emojis = ['🥔', '🍒', '🥑', '🌽', '🥕', '🍇', '🍉', '🍌', '🥭', '🍍']
+    const emojis = ['🇨🇬', '🇲🇦', '🇿🇦', '🇦🇷', '🇨🇴', '🇵🇪', '🇺🇸', '🇧🇷', '🇵🇷', '🇪🇸','🇮🇪','🇷🇴','🇦🇺','🇮🇨','🇯🇵','🇨🇳','🇹🇭','🇦🇶']
     
     //-- Elegimos un subconjunto de emojis al azar, así cada vez que comienza el juego
     // es diferente.
@@ -110,14 +127,15 @@ const attachEventListeners = () => {
             flipCard(eventParent)
         // Pero si lo que ha pasado es un clic en el botón de comenzar lo que hacemos es
         // empezar el juego
-        } else if (eventTarget.nodeName === 'BUTTON' && !eventTarget.className.includes('disabled')) {
+        } else if (eventTarget.className === 'start' && !eventTarget.className.includes('disabled')) {
             startGame()
+        } else if (eventTarget.className === 'restart' && !eventTarget.className.includes('disabled')) {
+            location.reload()
         }
     })
 }
 
-// Generamos el juego
-generateGame()
+
 
 // Asignamos las funciones de callback para determinados eventos
 attachEventListeners()
@@ -128,6 +146,8 @@ const startGame = () => {
     state.gameStarted = true
     // Desactivamos el botón de comenzar
     selectors.comenzar.classList.add('disabled')
+
+    const slide2 = document.getElementById("slide").disable = true;
 
     // Comenzamos el bucle de juego
     // Cada segundo vamos actualizando el display de tiempo transcurrido
@@ -179,6 +199,17 @@ const flipCard = card => {
         }, 1000)
     }
 
+
+const flipBackCards = () => {
+        // Seleccionamos las cartas que no han sido emparejadas
+        // y quitamos la clase de giro
+        document.querySelectorAll('.card:not(.matched)').forEach(card => {
+            card.classList.remove('flipped')
+        })
+        // Ponemos el contado de parejas de cartas a cero
+        state.flippedCards = 0
+}
+
     // Antes de terminar, comprobamos si quedan cartas por girar
     // porque cuando no quedan cartas por girar hemos ganado
     // y se lo tenemos que mostrar al jugador
@@ -194,17 +225,9 @@ const flipCard = card => {
                     en un tiempo de <span class="highlight">${state.totalTime}</span> segundos
                 </span>
             `
+            crono.stop();
             // Paramos el loop porque el juego ha terminado
             clearInterval(state.loop)
         }, 1000)
     }
-}
-const flipBackCards = () => {
-    // Seleccionamos las cartas que no han sido emparejadas
-    // y quitamos la clase de giro
-    document.querySelectorAll('.card:not(.matched)').forEach(card => {
-        card.classList.remove('flipped')
-    })
-    // Ponemos el contado de parejas de cartas a cero
-    state.flippedCards = 0
 }
