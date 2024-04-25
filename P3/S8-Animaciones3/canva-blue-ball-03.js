@@ -1,13 +1,12 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 let raf;
-let running = false;
 
 const ball = {
   x: 100,
   y: 100,
   vx: 5,
-  vy: 1,
+  vy: 2,
   radius: 25,
   color: "blue",
   draw() {
@@ -19,17 +18,13 @@ const ball = {
   },
 };
 
-function clear() {
-  ctx.fillStyle = "rgb(255 255 255 / 30%)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-}
-
 function draw() {
-  clear();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ball.draw();
   ball.x += ball.vx;
   ball.y += ball.vy;
 
+  // Así limitamos el movimiento de la pelota
   if (
     ball.y + ball.vy > canvas.height - ball.radius ||
     ball.y + ball.vy < ball.radius
@@ -46,25 +41,12 @@ function draw() {
   raf = window.requestAnimationFrame(draw);
 }
 
-canvas.addEventListener("mousemove", (e) => {
-  if (!running) {
-    clear();
-    ball.x = e.clientX;
-    ball.y = e.clientY;
-    ball.draw();
-  }
-});
-
-canvas.addEventListener("click", (e) => {
-  if (!running) {
-    raf = window.requestAnimationFrame(draw);
-    running = true;
-  }
+canvas.addEventListener("mouseover", (e) => {
+  raf = window.requestAnimationFrame(draw);
 });
 
 canvas.addEventListener("mouseout", (e) => {
   window.cancelAnimationFrame(raf);
-  running = false;
 });
 
 ball.draw();

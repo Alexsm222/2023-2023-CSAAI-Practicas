@@ -5,8 +5,8 @@ let raf;
 const ball = {
   x: 100,
   y: 100,
-  vx: 2,
-  vy: 6,
+  vx: 5,
+  vy: 2,
   radius: 25,
   color: "blue",
   draw() {
@@ -19,11 +19,12 @@ const ball = {
 };
 
 function draw() {
-  ctx.fillStyle = "rgb(255 255 255 / 30%)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ball.draw();
   ball.x += ball.vx;
   ball.y += ball.vy;
+
+  // Así añadimos el efecto de la aceleración al movimiento
   ball.vy *= 0.99;
   ball.vy += 0.25;
 
